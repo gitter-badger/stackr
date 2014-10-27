@@ -1,4 +1,4 @@
 stackr
 ======
 
-![Dependency Status](https://david-dm.org/adriantoine/stackr.png)
+[![Dependency Status](https://david-dm.org/adriantoine/stackr.png)](https://david-dm.org/adriantoine/stackr)
