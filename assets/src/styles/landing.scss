@@ -1,0 +1,33 @@
+
+@import 'lib/normalize';
+@import 'vars';
+@import 'base';
+
+@import 'components/btn';
+
+body {
+    background-color: $clr-black;
+    color: $clr-white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 8em;
+    font-family: $fnt-title;
+    font-weight: 100;
+}
+
+a {
+    background-color: $clr-twitter;
+    color: $clr-white;
+    font-size: 3em;
+    padding: 0.5em 1.5em;
+
+    &:visited {
+        color: $clr-white;
+    }
+
+    &:hover {
+
+    }
+}
