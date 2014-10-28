@@ -7,6 +7,15 @@ html {
     font-family: $fnt-body;
 }
 
+body {
+    background-color: $clr-black;
+    color: $clr-white;
+}
+
+h1, h2, h3, h4 {
+    font-family: $fnt-title;
+}
+
 *, *:before, *:after {
     box-sizing: inherit;
 }

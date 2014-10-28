@@ -1,14 +1,16 @@
 {
   "name": "stackr",
   "version": "1.0.0",
-  "description": "",
+  "description": "pile up knowledge",
   "main": "index.js",
-  "scripts": {
-    "test": ""
-  },
   "author": "Adrien Antoine",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adriantoine/stackr"
+  },
   "dependencies": {
+    "delorean.js": "^0.8.5",
     "koa": "^0.13.0",
     "koa-bodyparser": "^1.0.1",
     "koa-generic-session": "^1.2.2",
@@ -17,24 +19,30 @@
     "koa-passport": "^1.1.2",
     "koa-redis": "^0.1.1",
     "koa-router": "^3.5.0",
-    "koa-sess": "^0.4.1",
-    "koa-session": "^2.0.0",
     "koa-static": "^1.4.7",
-    "passport-oauth": "^1.0.0",
     "passport-twitter": "^1.0.2",
-    "thunkify": "^2.1.2",
+    "react": "^0.11.2",
     "thunkify-wrap": "^1.0.2",
     "twit": "^1.1.18",
     "twitter-text": "^1.9.4",
     "underscore": "^1.7.0"
   },
   "devDependencies": {
+    "browserify": "^6.2.0",
     "grunt": "^0.4.5",
+    "grunt-browserify": "^3.1.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-nodemon": "^0.3.0",
+    "grunt-watchify": "^0.1.0",
     "load-grunt-configs": "^0.4.0",
-    "load-grunt-tasks": "^1.0.0"
+    "load-grunt-tasks": "^1.0.0",
+    "reactify": "^0.14.0"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
   }
 }

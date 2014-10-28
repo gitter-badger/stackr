@@ -26,20 +26,19 @@ router.get('/app', authed, function *(){
 
     const
         user = this.session.passport.user,
-        twit = require('../helpers/twit')(user.token, user.tokenSecret);
-
-
-    var data = yield twit.get('statuses/home_timeline', {count: 5}),
-        tweets = data[0], returnedTweets = [];
+        twit = require('../helpers/twit')(user.token, user.tokenSecret),
+        data = yield twit.get('statuses/home_timeline', {count: 5}),
+        tweets = data[0],
+        returnedTweets = [];
 
     tweets.forEach(function(tweet) {
         returnedTweets.push({
-            name: tweet.user.name,
-            username: tweet.user.screen_name,
+            name:      tweet.user.name,
+            username:  tweet.user.screen_name,
             avatarUrl: tweet.user.profile_image_url,
-            rtCount: tweet.retweet_count,
-            favCount: tweet.favorite_count,
-            text: twttr.autoLink(tweet.text)
+            rtCount:   tweet.retweet_count,
+            favCount:  tweet.favorite_count,
+            text:      twttr.autoLink(tweet.text)
         });
     });
 
