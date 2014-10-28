@@ -1,6 +1,8 @@
 
 //Secures routes
 const
+    _        = require('underscore'),
+    moment   = require('moment'),
     Router   = require('koa-router'),
     router   = new Router(),
     twttr    = require('twitter-text');
@@ -32,16 +34,29 @@ router.get('/app', authed, function *(){
         returnedTweets = [];
 
     tweets.forEach(function(tweet) {
-        returnedTweets.push({
+
+        var treatedTweet = {};
+
+        if(tweet['retweeted_status']) {
+            treatedTweet['rtBy'] = tweet.user.name;
+            tweet = tweet['retweeted_status'];
+        }
+
+        _.extend(treatedTweet, {
             name:      tweet.user.name,
             username:  tweet.user.screen_name,
             avatarUrl: tweet.user.profile_image_url,
             rtCount:   tweet.retweet_count,
             favCount:  tweet.favorite_count,
+            timeAgo:   moment(tweet['created_at']).fromNow(),
             text:      twttr.autoLink(tweet.text)
         });
+
+        returnedTweets.push(treatedTweet);
+
     });
 
+    // this.body = JSON.stringify(tweets[0], null, '\t');
     yield this.render('app', {init: JSON.stringify(returnedTweets)});
 
 });

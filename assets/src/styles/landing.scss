@@ -6,25 +6,33 @@
 @import 'components/btn';
 
 body {
+    background-color: $clr-black;
     text-align: center;
 }
 
 h1 {
     font-size: 8em;
     font-weight: 100;
+    margin-bottom: 0;
+}
+
+h2 {
+    margin: 0;
+    font-weight: 100;
 }
 
 a {
+
     background-color: $clr-twitter;
     color: $clr-white;
-    font-size: 3em;
+    font-size: 1.5em;
     padding: 0.5em 1.5em;
+    margin: 2em auto;
+    display: block;
+    max-width: 12em;
 
     &:visited {
         color: $clr-white;
     }
 
-    &:hover {
-
-    }
 }

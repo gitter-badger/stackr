@@ -1,8 +1,67 @@
 
 .card {
+
     background-color: $clr-white;
     color: $clr-black;
-    width: 25em;
+    width: 20em;
+    height: 20em;
     padding: 1em;
     margin: auto;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 0 0.3em 0 rgba(0, 0, 0, 0.3);
+
+    header {
+        margin-bottom: 1em;
+
+        .avatar, .names {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .avatar {
+            border-radius: 5px;
+        }
+        .names {
+            margin-left: 0.5em;
+        }
+
+        .name, .username {
+            display: block;
+        }
+        .name {
+            font-weight: bold;
+        }
+        .username {
+            font-size: 0.8em;
+            font-style: normal;
+            color: $clr-grey;
+        }
+    }
+
+    .timeAgo {
+        font-size: 0.6em;
+        color: $clr-grey;
+        margin-top: 0.5em;
+    }
+
+    footer {
+
+        font-size: .5em;
+        color: $clr-grey;
+        position: absolute;
+        bottom: 1.5em;
+
+        span {
+            display: inline-block;
+            margin-right: 1em;
+        }
+
+        strong {
+            display: inline-block;
+            margin-right: 0.2em;
+            font-size: 1.3em;
+        }
+
+    }
+
 }

@@ -1,6 +1,6 @@
 
 @import url(http://fonts.googleapis.com/css?family=Comfortaa:300);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,700,300);
 
 html {
     box-sizing: border-box;
@@ -8,7 +8,6 @@ html {
 }
 
 body {
-    background-color: $clr-black;
     color: $clr-white;
 }
 
@@ -18,4 +17,13 @@ h1, h2, h3, h4 {
 
 *, *:before, *:after {
     box-sizing: inherit;
+}
+
+a {
+    color: $clr-twitter;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
