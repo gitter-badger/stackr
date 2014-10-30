@@ -49,7 +49,8 @@ router.get('/app', authed, function *(){
             rtCount:   tweet.retweet_count,
             favCount:  tweet.favorite_count,
             timeAgo:   moment(tweet['created_at']).fromNow(),
-            text:      twttr.autoLink(tweet.text)
+            text:      twttr.autoLink(tweet.text),
+            pictureUrl: 'https://pbs.twimg.com/media/B1I-fqmIcAAnMVL.jpg'
         });
 
         returnedTweets.push(treatedTweet);
