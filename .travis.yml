@@ -6,5 +6,6 @@ deploy:
   api_key:
     secure: iaK+/o/AGfo9ssHGFSi0gCi6270SRdEwFgNKm1HJ3N99BpHTOpXUh7zlvR366QZUAbkzgbvjGZECNsFJ/DtuU5LOGJoD33rXKybXeX+J66vrZTMhRnfnDyEUQkIyg57mYObkHyWItkvQdzxITcQJ7Y21PvOrm31ivW5fQjR/MLQ=
   app: stackrapp
+  strategy: git
   on:
     repo: adriantoine/stackr
