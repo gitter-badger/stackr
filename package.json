@@ -13,8 +13,7 @@
     "node": "0.11.x"
   },
   "scripts": {
-    "start": "node --harmony server.js",
-    "postinstall": "grunt build"
+    "start": "node --harmony server.js"
   },
   "dependencies": {
     "delorean.js": "^0.8.5",
