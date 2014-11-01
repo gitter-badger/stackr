@@ -8,7 +8,7 @@ module.exports = function(router) {
     );
 
     router.get('/auth/twitter/callback',
-        passport.authenticate('twitter', { successReturnToOrRedirect: '/app', failureRedirect: '/' })
+        passport.authenticate('twitter', { successReturnToOrRedirect: '/', failureRedirect: '/' })
     );
 
 };
