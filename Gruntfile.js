@@ -23,7 +23,7 @@ module.exports = function (grunt) {
     grunt.initConfig(config);
 
     grunt.registerTask('build', [
-        'browserify',
+        'browserify:dist',
         'uglify',
         'sass'
     ]);
