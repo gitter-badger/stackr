@@ -5,11 +5,18 @@ module.exports = {
         transform: ['reactify'],
         browserifyOptions: {
             extensions: ['.js', '.jsx']
-        },
-        debug: true
+        }
     },
 
     dev: {
+        options: {
+            debug: true
+        },
+        src: '<%= dirs.src %>/scripts/main.jsx',
+        dest: '<%= dirs.dist %>/scripts/main.js'
+    },
+
+    dist: {
         src: '<%= dirs.src %>/scripts/main.jsx',
         dest: '<%= dirs.dist %>/scripts/main.js'
     }

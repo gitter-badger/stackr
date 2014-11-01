@@ -13,7 +13,8 @@
     "node": "0.11.x"
   },
   "scripts": {
-    "start": "node --harmony server.js"
+    "start": "node --harmony server.js",
+    "postinstall": "grunt build"
   },
   "dependencies": {
     "delorean.js": "^0.8.5",
@@ -40,6 +41,7 @@
     "grunt-browserify": "^3.1.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-nodemon": "^0.3.0",
     "grunt-watchify": "^0.1.0",
