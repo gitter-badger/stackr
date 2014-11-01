@@ -9,6 +9,7 @@ const
     serve      = require('koa-static'),
     passport   = require('./auth');
 
+
 module.exports = function(app) {
 
     // body parser
@@ -16,10 +17,24 @@ module.exports = function(app) {
 
     app.use(serve('./assets/dist'));
 
+    var redisStore;
+    if(process.env.REDISTOGO_URL) {
+        const rtg = require('url').parse(process.env.REDISTOGO_URL);
+
+        redisStore = new RedisStore({
+            host: rtg.hostname,
+            port: rtg.port,
+            pass: rtg.auth.split(":")[1]
+        });
+
+    } else {
+        redisStore = new RedisStore();
+    }
+
     // Sessions
     app.keys = ['stackr'];
     app.use(session({
-        store: new RedisStore()
+        store: redisStore
     }));
 
     app.use(passport.initialize());
