@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/adriantoine/stackr"
   },
+  "engines": {
+    "node": "0.11.x"
+  },
   "scripts": {
     "start": "node --harmony server.js"
   },
