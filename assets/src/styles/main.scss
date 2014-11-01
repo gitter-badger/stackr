@@ -1,13 +1,18 @@
 
 @import 'lib/normalize';
+@import 'lib/fa/font-awesome';
+
 @import 'vars';
 @import 'base';
 
 @import 'components/btn';
 @import 'components/card';
 
+@import 'ui/main-stack';
+
 body {
-    background-color: $clr-lightblue;
+    background: url(/images/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 
 .stckr {
@@ -15,5 +20,5 @@ body {
     width: 100%;
     position: absolute;
     top: 50%;
-    margin-top: -12.5em;
+    margin-top: -13.5em;
 }

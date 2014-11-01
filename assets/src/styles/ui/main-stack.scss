@@ -1,0 +1,27 @@
+
+.main-stack {
+    width: $card-width;
+    margin: auto;
+
+    .buttons {
+        color: $clr-white;
+        margin-top: .5em;
+        font-size: 1.3em;
+
+        .btn {
+            width: 48%;
+            box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.6);
+        }
+
+        .trash {
+            background-color: $clr-red;
+            margin-right: 2%;
+        }
+
+        .thumb {
+            background-color: $clr-green;
+            margin-left: 2%;
+        }
+    }
+
+}

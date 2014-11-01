@@ -15,7 +15,7 @@ module.exports = function(router) {
             const
                 user = this.session.passport.user,
                 twit = require('../helpers/twit')(user.token, user.tokenSecret),
-                data = yield twit.get('statuses/home_timeline', {count: 5}),
+                data = yield twit.get('statuses/home_timeline', {count: 5, exclude_replies: true}),
                 tweets = data[0],
                 returnedTweets = [];
 
