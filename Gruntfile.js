@@ -22,10 +22,18 @@ module.exports = function (grunt) {
 
     grunt.initConfig(config);
 
+    grunt.registerTask('compile', [
+        'browserify:dev',
+        'sass'
+    ]);
+
     grunt.registerTask('build', [
         'browserify:dist',
         'uglify',
         'sass'
     ]);
+
+    grunt.registerTask('heroku:development', 'compile');
+    grunt.registerTask('heroku:production', 'build');
 
 };
