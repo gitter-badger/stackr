@@ -20,6 +20,7 @@ module.exports = function(app) {
     var redisStore;
     if(process.env.REDISTOGO_URL) {
         const rtg = require('url').parse(process.env.REDISTOGO_URL);
+        console.log('redistogourl: "' + process.env.REDISTOGO_URL + '" parsed: "' + JSON.stringify(rtg) + '"');
 
         redisStore = new RedisStore({
             host: rtg.hostname,
