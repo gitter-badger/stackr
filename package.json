@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/adriantoine/stackr"
   },
+  "scripts": {
+    "start": "node --harmony server.js"
+  },
   "dependencies": {
     "delorean.js": "^0.8.5",
     "koa": "^0.13.0",

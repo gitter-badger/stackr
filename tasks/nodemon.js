@@ -1,7 +1,7 @@
 
 module.exports = {
     dev: {
-        script: 'index.js',
+        script: 'server.js',
         options: {
             ext: 'js,hbs',
             nodeArgs: ['--harmony'],
