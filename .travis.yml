@@ -1,3 +1,10 @@
 language: node_js
 node_js:
-  - 0.11.14
+- 0.11.14
+deploy:
+  provider: heroku
+  api_key:
+    secure: iaK+/o/AGfo9ssHGFSi0gCi6270SRdEwFgNKm1HJ3N99BpHTOpXUh7zlvR366QZUAbkzgbvjGZECNsFJ/DtuU5LOGJoD33rXKybXeX+J66vrZTMhRnfnDyEUQkIyg57mYObkHyWItkvQdzxITcQJ7Y21PvOrm31ivW5fQjR/MLQ=
+  app: stackrapp
+  on:
+    repo: adriantoine/stackr
