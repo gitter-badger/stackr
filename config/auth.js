@@ -8,8 +8,7 @@ const
 
 passport.use(new TwitterStrategy({
         consumerKey: config.twitter.consumerKey,
-        consumerSecret: config.twitter.consumerSecret,
-        callbackURL: 'http://localhost:3000/auth/twitter/callback'
+        consumerSecret: config.twitter.consumerSecret
     },
     function(token, tokenSecret, profile, done) {
 
