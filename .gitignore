@@ -1,4 +1,5 @@
 npm-debug.log
+coverage/
 .sass-cache/
 node_modules/
 assets/dist/scripts/
