@@ -1,9 +1,5 @@
 
-//Secures routes
-const
-    _        = require('underscore'),
-    moment   = require('moment'),
-    twttr    = require('twitter-text');
+const Tweet = require('../models/Tweet');
 
 module.exports = function(router) {
 
@@ -19,28 +15,9 @@ module.exports = function(router) {
                 tweets = data[0],
                 returnedTweets = [];
 
-            tweets.forEach(function(tweet) {
-
-                var treatedTweet = {};
-
-                if(tweet['retweeted_status']) {
-                    treatedTweet['rtBy'] = tweet.user.name;
-                    tweet = tweet['retweeted_status'];
-                }
-
-                _.extend(treatedTweet, {
-                    name:      tweet.user.name,
-                    username:  tweet.user.screen_name,
-                    avatarUrl: tweet.user.profile_image_url,
-                    rtCount:   tweet.retweet_count,
-                    favCount:  tweet.favorite_count,
-                    timeAgo:   moment(tweet['created_at']).fromNow(),
-                    text:      twttr.autoLink(tweet.text),
-                    pictureUrl: 'https://pbs.twimg.com/media/B1I-fqmIcAAnMVL.jpg'
-                });
-
-                returnedTweets.push(treatedTweet);
-
+            tweets.forEach(function(tweetData) {
+                var tweet = new Tweet(tweetData);
+                returnedTweets.push(tweet.toJSON());
             });
 
             // this.body = JSON.stringify(tweets[0], null, '\t');
