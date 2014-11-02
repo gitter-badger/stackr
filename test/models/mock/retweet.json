@@ -1,0 +1,182 @@
+{
+    "created_at": "Sun Nov 02 18:02:03 +0000 2014",
+    "id": 528970305499574300,
+    "id_str": "528970305499574272",
+    "text": "RT @Hamster_1874: @GaryLineker have a word with yourself Gary, play acting for a red card and a deflected free kick. Very tenacious indeed 👍",
+    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+        "id": 471287735,
+        "id_str": "471287735",
+        "name": "Gary Lineker",
+        "screen_name": "GaryLineker",
+        "location": "",
+        "profile_location": null,
+        "description": "Once kicked a ball about. Now talk about kicking a ball about. Still flogging spuds.",
+        "url": null,
+        "entities": {
+            "description": {
+                "urls": []
+            }
+        },
+        "protected": false,
+        "followers_count": 3271209,
+        "friends_count": 601,
+        "listed_count": 8360,
+        "created_at": "Sun Jan 22 18:07:24 +0000 2012",
+        "favourites_count": 56,
+        "utc_offset": -36000,
+        "time_zone": "Hawaii",
+        "geo_enabled": false,
+        "verified": true,
+        "statuses_count": 13396,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": true,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/431019030804447233/I-om-WMc_normal.jpeg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/431019030804447233/I-om-WMc_normal.jpeg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/471287735/1373573631",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+        "created_at": "Sun Nov 02 17:55:34 +0000 2014",
+        "id": 528968675072954400,
+        "id_str": "528968675072954368",
+        "text": "This is a retweet text",
+        "source": "<a href=\"http://www.tweetcaster.com\" rel=\"nofollow\">TweetCaster for Android</a>",
+        "truncated": false,
+        "in_reply_to_status_id": 528968303239512060,
+        "in_reply_to_status_id_str": "528968303239512065",
+        "in_reply_to_user_id": 471287735,
+        "in_reply_to_user_id_str": "471287735",
+        "in_reply_to_screen_name": "GaryLineker",
+        "user": {
+            "id": 242275151,
+            "id_str": "242275151",
+            "name": "R",
+            "screen_name": "Hamster_1874",
+            "location": "",
+            "profile_location": null,
+            "description": "Eat sleep gym repeat",
+            "url": null,
+            "entities": {
+                "description": {
+                    "urls": []
+                }
+            },
+            "protected": false,
+            "followers_count": 1259,
+            "friends_count": 1199,
+            "listed_count": 16,
+            "created_at": "Mon Jan 24 11:38:00 +0000 2011",
+            "favourites_count": 75,
+            "utc_offset": -36000,
+            "time_zone": "Hawaii",
+            "geo_enabled": false,
+            "verified": false,
+            "statuses_count": 100984,
+            "lang": "en",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "is_translation_enabled": false,
+            "profile_background_color": "C6E2EE",
+            "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/663523358/d8lu039na4o278reemld.jpeg",
+            "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/663523358/d8lu039na4o278reemld.jpeg",
+            "profile_background_tile": false,
+            "profile_image_url": "http://pbs.twimg.com/profile_images/528528883126394880/Dg0TaziL_normal.jpeg",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/528528883126394880/Dg0TaziL_normal.jpeg",
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/242275151/1407699978",
+            "profile_link_color": "1F98C7",
+            "profile_sidebar_border_color": "FFFFFF",
+            "profile_sidebar_fill_color": "DAECF4",
+            "profile_text_color": "663B12",
+            "profile_use_background_image": true,
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": false,
+            "follow_request_sent": false,
+            "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweet_count": 17,
+        "favorite_count": 15,
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+                {
+                    "screen_name": "GaryLineker",
+                    "name": "Gary Lineker",
+                    "id": 471287735,
+                    "id_str": "471287735",
+                    "indices": [
+                        0,
+                        12
+                    ]
+                }
+            ],
+            "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+    },
+    "retweet_count": 17,
+    "favorite_count": 0,
+    "entities": {
+        "hashtags": [],
+        "symbols": [],
+        "user_mentions": [
+            {
+                "screen_name": "Hamster_1874",
+                "name": "R",
+                "id": 242275151,
+                "id_str": "242275151",
+                "indices": [
+                    3,
+                    16
+                ]
+            },
+            {
+                "screen_name": "GaryLineker",
+                "name": "Gary Lineker",
+                "id": 471287735,
+                "id_str": "471287735",
+                "indices": [
+                    18,
+                    30
+                ]
+            }
+        ],
+        "urls": []
+    },
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+}

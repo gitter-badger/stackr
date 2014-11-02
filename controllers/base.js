@@ -15,7 +15,7 @@ module.exports = function(router) {
                 data = yield twit.get('statuses/home_timeline', {count: 5, exclude_replies: true}),
                 tweetStack = new TweetStack(data[0]);
 
-            // this.body = JSON.stringify(tweets[0], null, '\t');
+            // this.body = JSON.stringify(data[0][1], null, '\t');
             yield this.render('app', {init: tweetStack.toJSONString()});
 
         }

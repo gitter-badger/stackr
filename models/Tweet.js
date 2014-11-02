@@ -28,8 +28,7 @@ Tweet.prototype = _.extend(Tweet.prototype, {
             rtCount:   data.retweet_count,
             favCount:  data.favorite_count,
             timeAgo:   moment(data.created_at).fromNow(),
-            text:      twttr.autoLink(data.text),
-            pictureUrl: 'https://pbs.twimg.com/media/B1I-fqmIcAAnMVL.jpg'
+            text:      twttr.autoLink(data.text)
         });
 
         return tweet;
