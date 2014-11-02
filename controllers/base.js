@@ -3,9 +3,9 @@ const TweetStack = require('../models/TweetStack');
 
 module.exports = function(router) {
 
-    router.get('/', function *(){
+    router.get('/', function *() {
 
-        if (!this.req.isAuthenticated()){
+        if (!this.req.isAuthenticated()) {
             yield this.render('landing', {title: 'stackr'});
         } else {
 

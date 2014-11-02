@@ -16,7 +16,7 @@ Tweet.prototype = _.extend(Tweet.prototype, {
 
         var tweet = {};
 
-        if(data.retweeted_status) {
+        if (data.retweeted_status) {
             tweet.rtBy = data.user.name;
             data = data.retweeted_status;
         }

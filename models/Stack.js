@@ -13,11 +13,11 @@ Stack.prototype = _.extend(Stack.prototype, {
 
     parse: function(data) {
 
-        if(!_.isArray(data)) {
+        if (!_.isArray(data)) {
             return [];
         }
 
-        if(this.model) {
+        if (this.model) {
 
             var parsedData = [];
 
@@ -35,7 +35,7 @@ Stack.prototype = _.extend(Stack.prototype, {
 
     toJSON: function() {
 
-        if(this.model) {
+        if (this.model) {
             var returnedJSON = [];
             this.each(function(model) {
                 returnedJSON.push(model.toJSON());

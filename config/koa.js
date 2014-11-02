@@ -8,7 +8,6 @@ const
     serve      = require('koa-static'),
     passport   = require('./auth');
 
-
 module.exports = function(app) {
 
     // body parser
