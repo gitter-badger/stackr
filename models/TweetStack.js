@@ -1,7 +1,6 @@
 
-const _      = require('underscore'),
-      Stack  = require('./Stack'),
-      Tweet  = require('./Tweet')
+const Stack  = require('./Stack'),
+      Tweet  = require('./Tweet');
 
 function TweetStack() {
     this.model = Tweet;

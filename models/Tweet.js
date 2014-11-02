@@ -16,9 +16,9 @@ Tweet.prototype = _.extend(Tweet.prototype, {
 
         var tweet = {};
 
-        if(data['retweeted_status']) {
-            tweet['rtBy'] = data.user.name;
-            data = data['retweeted_status'];
+        if(data.retweeted_status) {
+            tweet.rtBy = data.user.name;
+            data = data.retweeted_status;
         }
 
         _.extend(tweet, {
@@ -27,7 +27,7 @@ Tweet.prototype = _.extend(Tweet.prototype, {
             avatarUrl: data.user.profile_image_url,
             rtCount:   data.retweet_count,
             favCount:  data.favorite_count,
-            timeAgo:   moment(data['created_at']).fromNow(),
+            timeAgo:   moment(data.created_at).fromNow(),
             text:      twttr.autoLink(data.text),
             pictureUrl: 'https://pbs.twimg.com/media/B1I-fqmIcAAnMVL.jpg'
         });

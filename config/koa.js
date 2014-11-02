@@ -14,6 +14,7 @@ module.exports = function(app) {
     // body parser
     app.use(bodyParser());
 
+    // Serve static files
     app.use(serve('./assets/dist'));
 
     // Sessions
@@ -22,17 +23,21 @@ module.exports = function(app) {
         store: require('./redis-store')
     }));
 
+    // Initialize authentication and sessions
     app.use(passport.initialize());
     app.use(passport.session());
 
+    // View rendering using handlebars
     app.use(hbs.middleware({
       viewPath: __dirname + '/../views',
       layoutsPath: __dirname + '/../views/layouts',
       defaultLayout: 'main'
     }));
 
+    // Logger
     app.use(logger());
 
+    // Router
     app.use(router(app));
 
 };

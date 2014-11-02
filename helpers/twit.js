@@ -15,4 +15,4 @@ module.exports = function(token, secret) {
 
     return thunkify(twit);
 
-}
+};

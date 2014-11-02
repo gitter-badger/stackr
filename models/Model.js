@@ -25,6 +25,6 @@ Model.prototype = {
         return JSON.stringify(this.toJSON());
     }
 
-}
+};
 
 module.exports = Model;

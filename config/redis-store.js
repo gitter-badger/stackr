@@ -5,12 +5,12 @@ var redisStore;
 
 if(process.env.REDISTOGO_URL) {
     const rtg = require('url').parse(process.env.REDISTOGO_URL);
-    console.log('Connecting to Redis with host=' + rtg.hostname + '; port=' + rtg.port + '; pass=' + rtg.auth.split(":")[1]);
+    console.log('Connecting to Redis with host=' + rtg.hostname + '; port=' + rtg.port + '; pass=' + rtg.auth.split(':')[1]);
 
     redisStore = new RedisStore({
         host: rtg.hostname,
         port: rtg.port,
-        pass: rtg.auth.split(":")[1]
+        pass: rtg.auth.split(':')[1]
     });
 
 } else {

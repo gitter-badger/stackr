@@ -1,5 +1,5 @@
 
-"use strict";
+'use strict';
 
 const
     passport        = require('koa-passport'),
