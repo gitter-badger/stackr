@@ -1,14 +1,14 @@
 
-const _    = require('underscore'),
-      moment   = require('moment'),
-      twttr    = require('twitter-text'),
-      Base = require('./Base');
+const _      = require('underscore'),
+      moment = require('moment'),
+      twttr  = require('twitter-text'),
+      Model  = require('./Model');
 
 function Tweet() {
-    Base.apply(this, arguments);
+    Model.apply(this, arguments);
 }
 
-Tweet.prototype = new Base();
+Tweet.prototype = new Model();
 
 Tweet.prototype = _.extend(Tweet.prototype, {
 

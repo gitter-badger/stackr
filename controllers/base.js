@@ -1,5 +1,5 @@
 
-const Tweet = require('../models/Tweet');
+const TweetStack = require('../models/TweetStack');
 
 module.exports = function(router) {
 
@@ -12,16 +12,10 @@ module.exports = function(router) {
                 user = this.session.passport.user,
                 twit = require('../helpers/twit')(user.token, user.tokenSecret),
                 data = yield twit.get('statuses/home_timeline', {count: 5, exclude_replies: true}),
-                tweets = data[0],
-                returnedTweets = [];
-
-            tweets.forEach(function(tweetData) {
-                var tweet = new Tweet(tweetData);
-                returnedTweets.push(tweet.toJSON());
-            });
+                tweetStack = new TweetStack(data[0]);
 
             // this.body = JSON.stringify(tweets[0], null, '\t');
-            yield this.render('app', {init: JSON.stringify(returnedTweets)});
+            yield this.render('app', {init: tweetStack.toJSONString()});
 
         }
 

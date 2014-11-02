@@ -1,9 +1,9 @@
 
-function Base(data) {
+function Model(data) {
     this.initialize(data);
 }
 
-Base.prototype = {
+Model.prototype = {
 
     initialize: function(data) {
         this.setData(data);
@@ -19,8 +19,12 @@ Base.prototype = {
 
     toJSON: function() {
         return this.data;
+    },
+
+    toJSONString: function() {
+        return JSON.stringify(this.toJSON());
     }
 
 }
 
-module.exports = Base;
+module.exports = Model;
