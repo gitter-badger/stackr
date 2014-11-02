@@ -1,4 +1,6 @@
 
+/* global init:true */
+
 var React = require('react'),
     Stackr = require('./components/Stackr');
 

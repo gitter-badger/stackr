@@ -13,8 +13,22 @@ module.exports = function(grunt) {
             files: {
                 src: [
                     '**/*.js',
-                    '!node_modules/**/*.js',
-                    '!assets/**/*.js'
+                    '!node_modules/**/*',
+                    '!<%= dirs.dist %>/**/*'
+                ]
+            }
+        },
+
+        client: {
+            options: {
+                node: true,
+                browser: true,
+                quotmark: false
+            },
+            files: {
+                src: [
+                    '<%= dirs.src %>/**/*.js',
+                    '<%= dirs.src %>/**/*.jsx'
                 ]
             }
         }
