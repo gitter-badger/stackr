@@ -3,10 +3,24 @@ var React = require('react');
 
 var Card = React.createClass({
 
+    getClassName: function() {
+        return 'card ' + this.props.className;
+    },
+
+    getImage: function() {
+        if(this.props.data.image) {
+            return (
+                <div className="img-container">
+                    <img src={this.props.data.image}/>
+                </div>
+            );
+        }
+    },
+
     render: function() {
 
         return (
-            <div className="card">
+            <div className={this.getClassName()}>
 
                 <header>
                     <img className="avatar" src={this.props.data.avatarUrl}/>
@@ -18,6 +32,8 @@ var Card = React.createClass({
 
                 <div className="text" dangerouslySetInnerHTML={{__html: this.props.data.text}} />
                 <div className="timeAgo">{this.props.data.timeAgo}</div>
+
+                {this.getImage()}
 
                 <footer>
                     <span className="rt"><strong>{this.props.data.rtCount}</strong> RETWEETS</span>

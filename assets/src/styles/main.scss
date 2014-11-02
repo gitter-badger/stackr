@@ -8,17 +8,6 @@
 @import 'components/btn';
 @import 'components/card';
 
+@import 'ui/page-header';
+@import 'ui/stacks';
 @import 'ui/main-stack';
-
-body {
-    background: url(/images/bg.jpg) no-repeat center center fixed;
-    background-size: cover;
-}
-
-.stckr {
-    font-size: 1.5em;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    margin-top: -13.5em;
-}

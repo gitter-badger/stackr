@@ -7,11 +7,11 @@
     height: $card-height;
     margin: auto;
     position: relative;
-    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.6);
+    border-radius: $card-border-radius;
+    border: 3px solid $clr-lightgrey;
 
     header {
         padding: 1em;
-        background-color: $clr-blue;
 
         .avatar, .names {
             display: inline-block;
@@ -28,18 +28,19 @@
             display: block;
         }
         .name {
-            color: $clr-white;
             font-weight: 400;
         }
         .username {
             font-size: .6em;
             font-style: normal;
-            color: $clr-lightblue;
+            color: $clr-grey;
         }
     }
 
     .text {
-        padding: 1em 1em 0;
+        padding: 0 1em;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .timeAgo {
@@ -47,6 +48,15 @@
         font-size: 0.6em;
         color: $clr-grey;
         margin-top: 0.5em;
+    }
+
+    .img-container {
+        max-height: 8em;
+        overflow: hidden;
+        margin: 1em;
+        img {
+            width: 100%;
+        }
     }
 
     footer {

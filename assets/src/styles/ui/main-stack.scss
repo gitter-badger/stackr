@@ -5,12 +5,11 @@
 
     .buttons {
         color: $clr-white;
-        margin-top: .5em;
+        margin-top: 1em;
         font-size: 1.3em;
 
         .btn {
             width: 48%;
-            box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.6);
         }
 
         .trash {
@@ -21,6 +20,34 @@
         .thumb {
             background-color: $clr-green;
             margin-left: 2%;
+        }
+    }
+
+    .stack {
+        height: $card-height;
+        width: $card-height;
+        position: relative;
+    }
+
+    .card {
+        position: absolute;
+        $gap: .4rem;
+
+        &.current {
+            z-index: 3;
+            top: 0;
+        }
+
+        &.next {
+            z-index: 2;
+            top: $gap;
+            transform: scale(.98) translateY($gap);
+        }
+
+        &.next-2 {
+            z-index: 1;
+            top: $gap * 2;
+            transform: scale(.96) translateY($gap * 2);
         }
     }
 

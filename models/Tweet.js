@@ -21,6 +21,32 @@ Tweet.prototype = _.extend(Tweet.prototype, {
             data = data.retweeted_status;
         }
 
+
+
+        var text = data.text,
+            twitterTextOptions = {
+                usernameIncludeSymbol: true,
+                urlEntities: data.entities.urls,
+                targetBlank: true
+            };
+
+        if(data.extended_entities && data.extended_entities.media) {
+
+            var media = data.extended_entities.media;
+
+            media.forEach(function(entity) {
+
+                if(entity.type === 'photo') {
+                    tweet.image = entity.media_url;
+                    text = text.replace(entity.url, '');
+                }
+
+            });
+
+        }
+
+        text = twttr.autoLink(text, twitterTextOptions);
+
         _.extend(tweet, {
             name:      data.user.name,
             username:  data.user.screen_name,
@@ -28,7 +54,7 @@ Tweet.prototype = _.extend(Tweet.prototype, {
             rtCount:   data.retweet_count,
             favCount:  data.favorite_count,
             timeAgo:   moment(data.created_at).fromNow(),
-            text:      twttr.autoLink(data.text)
+            text:      text
         });
 
         return tweet;

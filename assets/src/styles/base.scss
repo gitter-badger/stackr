@@ -7,11 +7,21 @@ html {
 }
 
 body {
+    background-color: $clr-verylightgrey;
     color: $clr-black;
 }
 
 h1, h2, h3, h4 {
     font-family: $fnt-title;
+}
+
+
+h1 {
+    font-size: 3.998em;
+    font-weight: 400;
+    letter-spacing: -0.104em;
+    line-height: 0.7;
+    color: $clr-blue;
 }
 
 *, *:before, *:after {
