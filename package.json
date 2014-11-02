@@ -18,17 +18,14 @@
   },
   "dependencies": {
     "browserify": "^6.2.0",
-    "delorean.js": "^0.8.5",
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.1.0",
-    "grunt-concurrent": "^1.0.0",
     "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-jscs": "^0.8.1",
     "grunt-jsxhint": "^0.4.0",
     "grunt-nodemon": "^0.3.0",
-    "grunt-watchify": "^0.1.0",
     "koa": "^0.13.0",
     "koa-bodyparser": "^1.0.1",
     "koa-generic-session": "^1.2.2",
@@ -47,7 +44,6 @@
     "reactify": "^0.14.0",
     "thunkify-wrap": "^1.0.2",
     "twit": "^1.1.18",
-    "twitter": "^0.2.13",
     "twitter-text": "^1.9.4",
     "underscore": "^1.7.0"
   },
@@ -55,5 +51,11 @@
     "transform": [
       "reactify"
     ]
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "grunt-mocha": "^0.4.11",
+    "grunt-mocha-test": "^0.12.2",
+    "mocha": "^2.0.1"
   }
 }

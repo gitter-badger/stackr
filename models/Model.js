@@ -1,6 +1,8 @@
 
+var _ = require('underscore');
+
 function Model(data) {
-    this.initialize(data);
+    this.initialize(_.extend({}, data));
 }
 
 Model.prototype = {
@@ -23,6 +25,14 @@ Model.prototype = {
 
     toJSONString: function() {
         return JSON.stringify(this.toJSON());
+    },
+
+    get: function(key) {
+        return this.data[key];
+    },
+
+    set: function(key, value) {
+        this.data[key] = value;
     }
 
 };

@@ -11,6 +11,7 @@ module.exports = {
             src: [
                 '**/*.js',
                 '!node_modules/**/*',
+                '!test/**/*',
                 '!<%= dirs.dist %>/**/*'
             ]
         }

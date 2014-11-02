@@ -14,6 +14,7 @@ module.exports = function(grunt) {
                 src: [
                     '**/*.js',
                     '!node_modules/**/*',
+                    '!test/**/*',
                     '!assets/**/*'
                 ]
             }
