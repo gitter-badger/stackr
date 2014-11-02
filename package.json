@@ -13,7 +13,8 @@
     "node": "0.11.x"
   },
   "scripts": {
-    "start": "node --harmony server.js"
+    "start": "node --harmony server.js",
+    "test": "grunt test"
   },
   "dependencies": {
     "browserify": "^6.2.0",

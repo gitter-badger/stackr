@@ -36,4 +36,6 @@ module.exports = function (grunt) {
     grunt.registerTask('heroku:development', 'compile');
     grunt.registerTask('heroku:production', 'build');
 
+    grunt.registerTask('test', ['jshint']);
+
 };
