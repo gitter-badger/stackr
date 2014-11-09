@@ -1,6 +1,6 @@
 
 const
-    _      = require('underscore'),
+    _      = require('lodash'),
     Model  = require('./Model');
 
 function Stack() {

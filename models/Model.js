@@ -1,5 +1,5 @@
 
-var _ = require('underscore');
+var _ = require('lodash');
 
 function Model(data) {
     this.initialize(_.clone(data));

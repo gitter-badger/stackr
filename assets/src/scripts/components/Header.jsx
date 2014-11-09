@@ -1,16 +1,16 @@
 
-var React = require('react');
+var React = require('react'),
+    ClassSetMixin = require('./mixins/ClassSetMixin');
 
 var Header = React.createClass({
 
-    getClassName: function() {
-        return 'page-header';
-    },
+    className: 'page-header',
+    mixins: [ClassSetMixin],
 
     render: function() {
         return (
             <header className={this.getClassName()}>
-                <h1>stackr</h1>
+                <h1>{this.props.children}</h1>
             </header>
         );
     }

@@ -34,20 +34,27 @@
         $gap: .4rem;
 
         &.current {
-            z-index: 3;
+            z-index: 4;
             top: 0;
         }
 
         &.next {
-            z-index: 2;
+            z-index: 3;
             top: $gap;
             transform: scale(.98) translateY($gap);
         }
 
         &.next-2 {
-            z-index: 1;
+            z-index: 2;
             top: $gap * 2;
             transform: scale(.96) translateY($gap * 2);
+        }
+
+        &.next-3 {
+            z-index: 1;
+            visibility: hidden;
+            top: $gap * 3;
+            transform: scale(.94) translateY($gap * 3);
         }
     }
 

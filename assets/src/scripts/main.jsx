@@ -1,10 +1,8 @@
 
-/* global init:true */
-
 var React = require('react'),
-    Stackr = React.createFactory(require('./components/Stackr'));
+    App = require('./components/App');
 
 React.render(
-  <Stackr data={init} />,
+  <App />,
   document.getElementById('content')
 );

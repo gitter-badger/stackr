@@ -1,5 +1,5 @@
 
-const _      = require('underscore'),
+const _      = require('lodash'),
       moment = require('moment'),
       twttr  = require('twitter-text'),
       Model  = require('./Model');
