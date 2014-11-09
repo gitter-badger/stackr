@@ -4,3 +4,4 @@ coverage/
 node_modules/
 assets/dist/scripts/
 assets/dist/styles/
+Gemfile.lock
