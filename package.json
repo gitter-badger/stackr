@@ -15,9 +15,9 @@
   "scripts": {
     "watchify": "watchify assets/src/scripts/main.jsx -o assets/dist/scripts/main.js --extension .js  --extension .jsx -v",
     "browserify": "browserify assets/src/scripts/main.jsx -o assets/dist/scripts/main.js --extension .js  --extension .jsx",
-    "sass-landing": "node-sass --style compressed assets/src/styles/landing.scss assets/dist/styles/landing.css",
-    "sass-main": "node-sass --style compressed assets/src/styles/main.scss assets/dist/styles/main.css",
-    "sass-watch": "sass --style compressed --watch assets/src/styles/main.scss:assets/dist/styles/main.css",
+    "sass-landing": "bundle exec sass --style compressed assets/src/styles/landing.scss assets/dist/styles/landing.css",
+    "sass-main": "bundle exec sass --style compressed assets/src/styles/main.scss assets/dist/styles/main.css",
+    "sass-watch": "bundle exec sass --style compressed --watch assets/src/styles/main.scss:assets/dist/styles/main.css",
     "nodemon": "nodemon --harmony server.js",
     "postinstall": "npm run browserify & npm run sass-landing & npm run sass-main",
     "start": "node --harmony server.js",
