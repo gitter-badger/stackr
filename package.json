@@ -21,9 +21,11 @@
     "deploy:sass:main": "bundle exec sass --style compressed assets/src/styles/main.scss:assets/dist/styles/main.css",
     "deploy:sass": "npm run deploy:sass:landing & npm run deploy:sass:main",
     "deploy": "npm run deploy:browserify & npm run deploy:sass",
-    "dev:browserify": "watchify assets/src/scripts/main.jsx -o assets/dist/scripts/main.js --extension .js  --extension .jsx -v",
-    "dev:sass": "bundle exec sass --style compressed --watch assets/src/styles/main.scss:assets/dist/styles/main.css",
-    "dev:nodemon": "nodemon --harmony server.js",
+    "build:sass": "bundle exec sass --style compressed --watch assets/src/styles/main.scss:assets/dist/styles/main.css",
+    "watch:sass": "nodemon -e scss -x \"npm run build:sass\"",
+    "watch:browserify": "watchify assets/src/scripts/main.jsx -o assets/dist/scripts/main.js --extension .js  --extension .jsx -v",
+    "watch:node": "nodemon --harmony server.js",
+    "watch": "npm run watch:node & npm run watch:sass & npm run watch:browserify",
     "start": "npm run deploy:mkdir && npm run deploy && node --harmony server.js",
     "test": "NODE_ENV=test node --harmony ./node_modules/.bin/_mocha --reporter spec --recursive --timeout 30s --bail",
     "test-cov": "NODE_ENV=test node --harmony node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter spec --timeout 2m --bail --recursive",
@@ -59,6 +61,7 @@
     "chai": "^1.9.2",
     "istanbul": "^0.3.2",
     "mocha": "^2.0.1",
+    "nodemon": "^1.2.1",
     "sinon": "^1.11.1",
     "sinon-chai": "^2.6.0"
   }
