@@ -1,8 +1,8 @@
 
 var React = require('react'),
-    Card = require('./Card'),
-    Header = require('./Header'),
-    Button = require('./Button');
+    Card = React.createFactory(require('./Card')),
+    Header = React.createFactory(require('./Header')),
+    Button = React.createFactory(require('./Button'));
 
 var Stackr = React.createClass({
 
@@ -23,8 +23,7 @@ var Stackr = React.createClass({
                         </div>
                     </div>
                 </div>
-            </div>
-        );
+            </div>);
     }
 
 });

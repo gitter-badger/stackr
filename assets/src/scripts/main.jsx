@@ -2,9 +2,9 @@
 /* global init:true */
 
 var React = require('react'),
-    Stackr = require('./components/Stackr');
+    Stackr = React.createFactory(require('./components/Stackr'));
 
-React.renderComponent(
+React.render(
   <Stackr data={init} />,
   document.getElementById('content')
 );

@@ -1,23 +1,19 @@
 
-var React = require('react');
+var React = require('react'),
+    ClassSetMixin = require('../mixins/ClassSetMixin');
 
 var Button = React.createClass({
 
-    getClassName: function() {
+    className: 'btn',
 
-        var className ='btn ' + this.props.className;
-
-        if(this.props.icon) {
-            className += ' fa fa-' +  this.props.icon;
-        }
-
-        return className;
-    },
+    mixins: [ClassSetMixin],
 
     render: function() {
+
         return (
             <span className={this.getClassName()}></span>
         );
+
     }
 
 });

@@ -1,11 +1,12 @@
 
-var React = require('react');
+var React = require('react'),
+    ClassSetMixin = require('../mixins/ClassSetMixin');
 
 var Card = React.createClass({
 
-    getClassName: function() {
-        return 'card ' + this.props.className;
-    },
+    className: 'card',
+
+    mixins: [ClassSetMixin],
 
     getImage: function() {
         if(this.props.data.image) {
