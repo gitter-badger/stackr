@@ -13,15 +13,15 @@
     "node": "0.11.x"
   },
   "scripts": {
-    "mkdir": "mkdir assets/dist/styles & mkdir assets/dist/scripts",
+    "deploy:mkdir": "mkdir assets/dist/styles & mkdir assets/dist/scripts",
+    "deploy:browserify": "browserify assets/src/scripts/main.jsx -o assets/dist/scripts/main.js --extension .js  --extension .jsx",
+    "deploy:sass-landing": "bundle exec sass --style compressed assets/src/styles/landing.scss:assets/dist/styles/landing.css",
+    "deploy:sass-main": "bundle exec sass --style compressed assets/src/styles/main.scss:assets/dist/styles/main.css",
+    "deploy": "npm run browserify & npm run sass-landing & npm run sass-main",
     "watchify": "watchify assets/src/scripts/main.jsx -o assets/dist/scripts/main.js --extension .js  --extension .jsx -v",
-    "browserify": "browserify assets/src/scripts/main.jsx -o assets/dist/scripts/main.js --extension .js  --extension .jsx",
-    "sass-landing": "bundle exec sass --style compressed assets/src/styles/landing.scss:assets/dist/styles/landing.css",
-    "sass-main": "bundle exec sass --style compressed assets/src/styles/main.scss:assets/dist/styles/main.css",
     "sass-watch": "bundle exec sass --style compressed --watch assets/src/styles/main.scss:assets/dist/styles/main.css",
     "nodemon": "nodemon --harmony server.js",
-    "build": "npm run browserify & npm run sass-landing & npm run sass-main",
-    "start": "npm run mkdir && npm run build && node --harmony server.js",
+    "start": "npm run deploy:mkdir && npm run deploy && node --harmony server.js",
     "test": "NODE_ENV=test node --harmony ./node_modules/.bin/_mocha --reporter spec --recursive --timeout 30s --bail",
     "test-cov": "NODE_ENV=test node --harmony node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter spec --timeout 2m --bail --recursive",
     "test-travis": "NODE_ENV=test node --harmony node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot --timeout 2m --bail --recursive"
