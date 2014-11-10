@@ -48,6 +48,7 @@ Tweet.prototype = _.extend(Tweet.prototype, {
         text = twttr.autoLink(text, twitterTextOptions);
 
         _.extend(tweet, {
+            id:        data.id,
             name:      data.user.name,
             username:  data.user.screen_name,
             avatarUrl: data.user.profile_image_url,

@@ -1,5 +1,7 @@
 
-const TweetStack = require('../models/TweetStack');
+const
+    _ = require('lodash'),
+    TweetStack = require('../models/TweetStack');
 
 module.exports = function(router) {
 
@@ -23,7 +25,12 @@ module.exports = function(router) {
                 tweetStack = new TweetStack(data[0]);
 
             // this.body = JSON.stringify(data[0][1], null, '\t');
-            yield this.render('app', {init: tweetStack.toJSONString()});
+
+            var json = _.uniq(tweetStack.toJSON(), false, function(tweet) {
+                return tweet.id;
+            });
+
+            yield this.render('app', {init: JSON.stringify(json)});
 
         }
 

@@ -32,6 +32,19 @@
     .card {
         position: absolute;
         $gap: .4rem;
+        transition: all .5s;
+        visibility: visible;
+        opacity: 1;
+
+        &.card-stack-stack-leave-active {
+            opacity: 0;
+            transform: translateX(200%);
+        }
+
+        &.card-stack-trash-leave-active {
+            opacity: 0;
+            transform: translateX(-200%);
+        }
 
         &.current {
             z-index: 4;
@@ -53,9 +66,11 @@
         &.next-3 {
             z-index: 1;
             visibility: hidden;
+            opacity: 0;
             top: $gap * 3;
             transform: scale(.94) translateY($gap * 3);
         }
+
     }
 
 }

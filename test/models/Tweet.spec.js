@@ -32,6 +32,7 @@ describe('Tweet', function(){
 
         it('returns parsed tweet when its not a RT', function() {
             expect(this.model.parse(mockTweet)).to.deep.equal({
+                id:        528968303239512060,
                 name:      'Gary Lineker',
                 username:  'GaryLineker',
                 avatarUrl: 'http://pbs.twimg.com/profile_images/431019030804447233/I-om-WMc_normal.jpeg',
@@ -44,6 +45,7 @@ describe('Tweet', function(){
 
         it('returns parsed tweet when its a RT', function() {
             expect(this.model.parse(mockRetweet)).to.deep.equal({
+                id:        528968675072954400,
                 name:      'R',
                 username:  'Hamster_1874',
                 avatarUrl: 'http://pbs.twimg.com/profile_images/528528883126394880/Dg0TaziL_normal.jpeg',
