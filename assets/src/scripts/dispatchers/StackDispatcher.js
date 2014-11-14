@@ -1,8 +1,9 @@
 
-var Flux = require('delorean').Flux,
-    CardStore = require('../stores/CardStore');
+var {Flux} = require('delorean');
 
-var StackDispatcher = Flux.createDispatcher({
+import {CardStore} from '../stores/CardStore';
+
+export var StackDispatcher = Flux.createDispatcher({
 
     pushCard: function (action) {
         this.dispatch('push-card', action);
@@ -15,5 +16,3 @@ var StackDispatcher = Flux.createDispatcher({
     }
 
 });
-
-module.exports = StackDispatcher;

@@ -1,8 +1,9 @@
 
-var React = require('react'),
-    ClassSetMixin = require('./mixins/ClassSetMixin');
+var React = require('react');
 
-var Card = React.createClass({
+import {ClassSetMixin} from './mixins/ClassSetMixin';
+
+export var Card = React.createClass({
 
     className: 'card',
     mixins: [ClassSetMixin],
@@ -46,5 +47,3 @@ var Card = React.createClass({
     }
 
 });
-
-module.exports = Card;

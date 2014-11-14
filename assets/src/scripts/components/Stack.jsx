@@ -1,40 +1,38 @@
 
-var React = require('react/addons'),
-    ClassSetMixin = require('./mixins/ClassSetMixin'),
-    Flux = require('delorean').Flux,
-    Card = require('./Card'),
-    ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+var React  = require ('react/addons'),
+    {Flux} =  require('delorean'),
+    {CSSTransitionGroup} = React.addons;
 
-var Stack = React.createClass({
+import {ClassSetMixin} from './mixins/ClassSetMixin';
+import {Card}          from './Card';
+
+
+export var Stack = React.createClass({
 
     className: 'stack',
     mixins: [ClassSetMixin, Flux.mixins.storeListener],
 
     getCard: function(card, className) {
-        return <Card key={card.id} className={className} data={card} />;
-    },
-
-    getTransitionName: function() {
-        return 'card-stack-' + this.getStore('cards').action;
+        if(card) {
+            return <Card key={card.id} className={className} data={card} />;
+        }
     },
 
     render: function() {
 
-        var cards = this.getStore('cards').cards;
+        var store = this.getStore('cards');
 
         return (
             <div className={this.getClassName()}>
-                <ReactCSSTransitionGroup transitionEnter={false} transitionName={this.getTransitionName()}>
-                    {this.getCard(cards[0], 'current')}
-                    {this.getCard(cards[1], 'next'   )}
-                    {this.getCard(cards[2], 'next-2' )}
-                    {this.getCard(cards[3], 'next-3' )}
-                </ReactCSSTransitionGroup>
+                <CSSTransitionGroup transitionEnter={false} transitionName={'card-stack-' + store.action}>
+                    {this.getCard(store.cards[0], 'current')}
+                    {this.getCard(store.cards[1], 'next'   )}
+                    {this.getCard(store.cards[2], 'next-2' )}
+                    {this.getCard(store.cards[3], 'next-3' )}
+                </CSSTransitionGroup>
             </div>
         );
 
     }
 
 });
-
-module.exports = Stack;

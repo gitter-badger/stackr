@@ -1,7 +1,7 @@
 
-var cx = require('react/addons').addons.classSet;
+var {classSet} = require('react/addons').addons;
 
-var ClassSetMixin = {
+export var ClassSetMixin = {
 
     getClassName: function() {
 
@@ -11,11 +11,8 @@ var ClassSetMixin = {
         classes[this.props.className] = !!this.props.className;
         classes['fa fa-' + (this.props.icon || this.iconClass)] = !!(this.props.icon || this.iconClass);
 
-        return cx(classes);
+        return classSet(classes);
 
     }
 
-
 };
-
-module.exports = ClassSetMixin;

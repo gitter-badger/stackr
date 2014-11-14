@@ -1,9 +1,9 @@
 
 /* global init:true */
 
-var Flux = require('delorean').Flux;
+var {Flux} = require('delorean');
 
-var CardStore = Flux.createStore({
+export var CardStore = Flux.createStore({
 
     cards: init,
     action: null,
@@ -16,7 +16,16 @@ var CardStore = Flux.createStore({
         // TODO: Send Ajax
         this.action = action;
         this.cards.shift();
+
+        if(this.cards.length <= 10) {
+            this.restock();
+        }
+
         this.emit('change');
+    },
+
+    restock: function() {
+        console.log('restock');
     },
 
     getState: function() {
@@ -27,5 +36,3 @@ var CardStore = Flux.createStore({
     }
 
 });
-
-module.exports = CardStore;

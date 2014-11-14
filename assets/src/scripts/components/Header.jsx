@@ -1,8 +1,9 @@
 
-var React = require('react'),
-    ClassSetMixin = require('./mixins/ClassSetMixin');
+var React = require('react');
 
-var Header = React.createClass({
+import {ClassSetMixin} from './mixins/ClassSetMixin';
+
+export var Header = React.createClass({
 
     className: 'page-header',
     mixins: [ClassSetMixin],
@@ -16,5 +17,3 @@ var Header = React.createClass({
     }
 
 });
-
-module.exports = Header;

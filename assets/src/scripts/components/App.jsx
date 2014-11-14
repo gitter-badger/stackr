@@ -1,19 +1,20 @@
 
-var React = require('react'),
-    Header = require('./Header'),
-    Button = require('./Button'),
-    Stack = require('./Stack'),
-    stackActions = require('../actions/StackActions'),
-    StackDispatcher = require('../dispatchers/StackDispatcher');
+var React  = require ('react');
 
-var App = React.createClass({
+import {Header}          from './Header';
+import {Button}          from './Button';
+import {Stack}           from './Stack';
+import stackActions      from '../actions/StackActions';
+import {StackDispatcher} from '../dispatchers/StackDispatcher';
+
+export var App = React.createClass({
 
     render: function() {
+
         return (
             <div className="stckr">
                 <Header>stackr</Header>
                 <div className="stacks">
-
                     <div className="main-stack">
                         <Stack cards={this.props.data} dispatcher={StackDispatcher} />
                         <div className="buttons">
@@ -25,6 +26,7 @@ var App = React.createClass({
                 </div>
             </div>
         );
+
     },
 
     onTrashClick: function() {
@@ -36,5 +38,3 @@ var App = React.createClass({
     }
 
 });
-
-module.exports = App;

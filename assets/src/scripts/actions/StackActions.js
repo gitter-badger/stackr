@@ -1,16 +1,10 @@
 
-var StackDispatcher = require('../dispatchers/StackDispatcher');
+import {StackDispatcher} from '../dispatchers/StackDispatcher';
 
-var StackActions = {
-
-    trashCard: function() {
-        StackDispatcher.pushCard('trash');
-    },
-
-    stackCard: function() {
-        StackDispatcher.pushCard('stack');
-    }
-
+export var trashCard = function() {
+    StackDispatcher.pushCard('trash');
 };
 
-module.exports = StackActions;
+export var stackCard = function() {
+    StackDispatcher.pushCard('stack');
+};

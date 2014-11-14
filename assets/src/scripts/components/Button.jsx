@@ -1,8 +1,9 @@
 
-var React = require('react'),
-    ClassSetMixin = require('./mixins/ClassSetMixin');
+var React  = require ('react');
 
-var Button = React.createClass({
+import {ClassSetMixin} from './mixins/ClassSetMixin';
+
+export var Button = React.createClass({
 
     className: 'btn',
     mixins: [ClassSetMixin],
@@ -18,5 +19,3 @@ var Button = React.createClass({
     }
 
 });
-
-module.exports = Button;
