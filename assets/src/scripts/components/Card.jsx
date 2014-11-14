@@ -1,5 +1,5 @@
 
-var React = require('react');
+const React = require('react');
 
 import {ClassSetMixin} from './mixins/ClassSetMixin';
 

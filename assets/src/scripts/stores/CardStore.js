@@ -1,7 +1,10 @@
 
 /* global init:true */
 
-var {Flux} = require('delorean');
+var {Flux}   = require('delorean');
+var thunkify = require('thunkify');
+
+console.log(thunkify);
 
 export var CardStore = Flux.createStore({
 

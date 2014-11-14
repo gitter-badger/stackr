@@ -1,5 +1,5 @@
 
-var {classSet} = require('react/addons').addons;
+const {classSet} = require('react/addons').addons;
 
 export var ClassSetMixin = {
 

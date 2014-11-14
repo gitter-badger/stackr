@@ -1,5 +1,5 @@
 
-var {Flux} = require('delorean');
+const {Flux} = require('delorean');
 
 import {CardStore} from '../stores/CardStore';
 

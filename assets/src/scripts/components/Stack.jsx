@@ -1,5 +1,5 @@
 
-var React  = require ('react/addons'),
+const React  = require ('react/addons'),
     {Flux} =  require('delorean'),
     {CSSTransitionGroup} = React.addons;
 
@@ -20,15 +20,15 @@ export var Stack = React.createClass({
 
     render() {
 
-        var store = this.getStore('cards');
+        let {cards, action} = this.getStore('cards');
 
         return (
             <div className={this.getClassName()}>
-                <CSSTransitionGroup transitionEnter={false} transitionName={'card-stack-' + store.action}>
-                    {this.getCard(store.cards[0], 'current')}
-                    {this.getCard(store.cards[1], 'next'   )}
-                    {this.getCard(store.cards[2], 'next-2' )}
-                    {this.getCard(store.cards[3], 'next-3' )}
+                <CSSTransitionGroup transitionEnter={false} transitionName={`card-stack-${action}`}>
+                    {this.getCard(cards[0], 'current')}
+                    {this.getCard(cards[1], 'next'   )}
+                    {this.getCard(cards[2], 'next-2' )}
+                    {this.getCard(cards[3], 'next-3' )}
                 </CSSTransitionGroup>
             </div>
         );
