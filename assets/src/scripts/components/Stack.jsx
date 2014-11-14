@@ -12,13 +12,13 @@ export var Stack = React.createClass({
     className: 'stack',
     mixins: [ClassSetMixin, Flux.mixins.storeListener],
 
-    getCard: function(card, className) {
+    getCard(card, className) {
         if(card) {
             return <Card key={card.id} className={className} data={card} />;
         }
     },
 
-    render: function() {
+    render() {
 
         var store = this.getStore('cards');
 

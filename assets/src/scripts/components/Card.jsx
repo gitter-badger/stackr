@@ -8,7 +8,7 @@ export var Card = React.createClass({
     className: 'card',
     mixins: [ClassSetMixin],
 
-    getImage: function() {
+    getImage() {
         if(this.props.data.image) {
             return (
                 <div className="img-container">
@@ -18,7 +18,7 @@ export var Card = React.createClass({
         }
     },
 
-    render: function() {
+    render() {
 
         return (
             <div className={this.getClassName()}>

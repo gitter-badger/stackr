@@ -8,7 +8,7 @@ export var Button = React.createClass({
     className: 'btn',
     mixins: [ClassSetMixin],
 
-    render: function() {
+    render() {
 
         return (
             <span className={this.getClassName()} onClick={this.props.onClick}>

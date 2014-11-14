@@ -4,12 +4,12 @@ var React  = require ('react');
 import {Header}          from './Header';
 import {Button}          from './Button';
 import {Stack}           from './Stack';
-import stackActions      from '../actions/StackActions';
 import {StackDispatcher} from '../dispatchers/StackDispatcher';
+import {trashCard, stackCard} from '../actions/StackActions';
 
 export var App = React.createClass({
 
-    render: function() {
+    render() {
 
         return (
             <div className="stckr">
@@ -29,12 +29,12 @@ export var App = React.createClass({
 
     },
 
-    onTrashClick: function() {
-        stackActions.trashCard();
+    onTrashClick() {
+        trashCard();
     },
 
-    onThumbClick: function() {
-        stackActions.stackCard();
+    onThumbClick() {
+        stackCard();
     }
 
 });

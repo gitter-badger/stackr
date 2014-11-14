@@ -12,7 +12,7 @@ export var CardStore = Flux.createStore({
         'push-card': 'pushCard'
     },
 
-    pushCard: function(action) {
+    pushCard(action) {
         // TODO: Send Ajax
         this.action = action;
         this.cards.shift();
@@ -24,11 +24,11 @@ export var CardStore = Flux.createStore({
         this.emit('change');
     },
 
-    restock: function() {
+    restock() {
         console.log('restock');
     },
 
-    getState: function() {
+    getState() {
         return {
             cards: this.cards,
             action: this.action

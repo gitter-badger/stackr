@@ -5,11 +5,11 @@ import {CardStore} from '../stores/CardStore';
 
 export var StackDispatcher = Flux.createDispatcher({
 
-    pushCard: function (action) {
+    pushCard(action) {
         this.dispatch('push-card', action);
     },
 
-    getStores: function () {
+    getStores() {
         return {
             cards: new CardStore()
         };
