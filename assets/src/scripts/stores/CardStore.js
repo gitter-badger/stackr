@@ -3,8 +3,7 @@
 
 var {Flux}   = require('delorean');
 var thunkify = require('thunkify');
-
-console.log(thunkify);
+var reqwest  = require('reqwest');
 
 export var CardStore = Flux.createStore({
 
@@ -28,7 +27,9 @@ export var CardStore = Flux.createStore({
     },
 
     restock() {
-        console.log('restock');
+        reqwest('path/to/html', function (resp) {
+          console.log(resp);
+        });
     },
 
     getState() {

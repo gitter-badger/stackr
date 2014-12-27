@@ -4,7 +4,7 @@ const
     router   = new Router();
 
 // Load Twitter router
-require('./twitter')(router);
+require('./auth')(router);
 
 // Load base router
 require('./base')(router);

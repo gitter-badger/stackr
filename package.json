@@ -52,6 +52,7 @@
     "react-tools": "^0.12.0",
     "reactify": "^0.15.2",
     "require-dir": "^0.1.0",
+    "reqwest": "^1.1.5",
     "thunkify": "^2.1.2",
     "thunkify-wrap": "^1.0.2",
     "twit": "^1.1.18",

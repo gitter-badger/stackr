@@ -1,7 +1,7 @@
 
 const
     _ = require('lodash'),
-    TweetStack = require('../models/TweetStack');
+    SyncTweetStack = require('../models/SyncTweetStack');
 
 module.exports = function(router) {
 
@@ -10,28 +10,14 @@ module.exports = function(router) {
         if (!this.req.isAuthenticated()) {
             yield this.render('landing', {title: 'stackr'});
         } else {
-
-            // var request = require('request');
-            // request('https://api.twitter.com/1.1/statuses/home_timeline.json', function (error, response, body) {
-            //   if (!error && response.statusCode == 200) {
-            //     console.log(body) // Print the google web page.
-            //   }
-            // });
-
             const
                 user = this.session.passport.user,
-                twit = require('../helpers/twit')(user.token, user.tokenSecret),
-                data = yield twit.get('statuses/home_timeline', {count: 5, exclude_replies: true}),
-                tweetStack = new TweetStack(data[0]);
+                tweetStack = new SyncTweetStack(user.token, user.tokenSecret);
 
-            // this.body = JSON.stringify(data[0][1], null, '\t');
+            yield tweetStack.sync();
 
-            var json = _.uniq(tweetStack.toJSON(), false, function(tweet) {
-                return tweet.id;
-            });
-
+            var json = _.uniq(tweetStack.toJSON(), false, function(tweet) { return tweet.id; });
             yield this.render('app', {init: JSON.stringify(json)});
-
         }
 
     });
