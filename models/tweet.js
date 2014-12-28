@@ -1,16 +1,9 @@
 
 const _      = require('lodash'),
       moment = require('moment'),
-      twttr  = require('twitter-text'),
-      Model  = require('./Model');
+      twttr  = require('twitter-text');
 
-function Tweet() {
-    Model.apply(this, arguments);
-}
-
-Tweet.prototype = new Model();
-
-Tweet.prototype = _.extend(Tweet.prototype, {
+module.exports = {
 
     parse: function(data) {
 
@@ -21,14 +14,15 @@ Tweet.prototype = _.extend(Tweet.prototype, {
             data = data.retweeted_status;
         }
 
-
-
         var text = data.text,
             twitterTextOptions = {
                 usernameIncludeSymbol: true,
-                urlEntities: data.entities.urls,
                 targetBlank: true
             };
+
+            if(data.entities) {
+                twitterTextOptions.urlEntities = data.entities.urls;
+            }
 
         if(data.extended_entities && data.extended_entities.media) {
 
@@ -62,6 +56,4 @@ Tweet.prototype = _.extend(Tweet.prototype, {
 
     }
 
-});
-
-module.exports = Tweet;
+}

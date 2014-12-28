@@ -7,8 +7,8 @@ const
     config          = require('./config');
 
 passport.use(new TwitterStrategy({
-        consumerKey: config.twitter.consumerKey,
-        consumerSecret: config.twitter.consumerSecret
+        consumerKey: config.twitterAPI.consumerKey,
+        consumerSecret: config.twitterAPI.consumerSecret
     },
     function(token, tokenSecret, profile, done) {
 

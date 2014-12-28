@@ -6,44 +6,40 @@ const
     url = require('url'),
     Immutable = require('immutable'),
     config = require('../config/config'),
-    TweetStack = require('../models/TweetStack'),
-    client = require('../helpers/redis-client');
-
-function twit(token, tokenSecret) {
-    return require('../helpers/twit')(token, tokenSecret);
-}
+    tweet = require('../models/tweet'),
+    keyIn = require('../helpers/keyIn'),
+    cache = require('../helpers/redis-cache');
 
 function* getHomeTimelineStack(id, token, tokenSecret, params) {
 
-    let key = 'statuses/home_timeline/' + id,
-        result = yield client.get(key);
+    let key    = 'statuses/home_timeline/' + id,
+        result = yield cache.get(key);
 
     if(result) {
-        result = JSON.parse(result);
+        result = Immutable.OrderedSet(JSON.parse(result));
     }
 
-    if(!result || !result.length) {
-        console.log('no res');
-        let twitParams = _.extend({
+    if(!result || result.size < 20) {
+        let twitParams = Immutable.Map({
             count: 200,
             exclude_replies: true
-        }, params);
-        twitParams = _.pick(twitParams, 'count', 'since_id', 'max_id', 'trim_user', 'exclude_replies', 'contributor_details', 'include_entities');
+        })
+            .merge(params)
+            .filter(keyIn('count', 'since_id', 'max_id', 'trim_user', 'exclude_replies', 'contributor_details', 'include_entities'));
 
-        let data = yield twit(token, tokenSecret).get('statuses/home_timeline', twitParams);
+        let data = yield require('../helpers/twit')(token, tokenSecret).get('statuses/home_timeline', twitParams.toJS());
 
-        result = data[0];
+        result = Immutable.OrderedSet(data[0]).map(tweet.parse);
     }
 
     let count        = config.tweets.count,
-        cacheTweets  = Immutable.List(result),
-        returnTweets = cacheTweets.slice(-count);
+        returnTweets = result.slice(-count);
 
-    cacheTweets  = cacheTweets.skipLast(count);
+    result  = result.skipLast(count);
 
-    client.setex(key, 21600, JSON.stringify(cacheTweets));
+    cache.set(key, result);
 
-    return new TweetStack(returnTweets);
+    return returnTweets;
 
 }
 
@@ -58,8 +54,7 @@ module.exports = function(router) {
                 user = this.session.passport.user,
                 stack = yield getHomeTimelineStack(user.id, user.token, user.tokenSecret);
 
-            var json = _.uniq(stack.toJSON(), false, function(tweet) { return tweet.id; });
-            yield this.render('app', {init: JSON.stringify(json)});
+            yield this.render('app', {init: JSON.stringify(stack)});
         }
 
     });
@@ -74,7 +69,7 @@ module.exports = function(router) {
                 user = this.session.passport.user,
                 stack = yield getHomeTimelineStack(user.token, user.tokenSecret, params);
 
-            this.body = _.uniq(stack.toJSON(), false, function(tweet) { return tweet.id; });
+            this.body = stack.toJS();
         }
 
     });
