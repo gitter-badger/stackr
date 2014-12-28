@@ -1,5 +1,5 @@
 
-const client = require('../helpers/redis-client');
+const client = require('./client');
 
 module.exports = {
 

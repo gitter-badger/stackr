@@ -19,7 +19,7 @@ module.exports = function(app) {
     // Sessions
     app.keys = ['stackr'];
     app.use(session({
-        store: require('./redis-store')
+        store: require('../helpers/redis/store')
     }));
 
     // Initialize authentication and sessions
