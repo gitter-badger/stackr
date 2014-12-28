@@ -13,6 +13,6 @@ module.exports = function(token, secret) {
         access_token_secret:  secret
     });
 
-    return thunkify(twit);
+    return thunkify(twit, ['get', 'post']);
 
 };

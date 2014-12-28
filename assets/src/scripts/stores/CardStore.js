@@ -2,6 +2,7 @@
 /* global init:true */
 
 var {Flux}   = require('delorean');
+var _        = require('lodash');
 var thunkify = require('thunkify');
 var reqwest  = require('reqwest');
 
@@ -27,9 +28,14 @@ export var CardStore = Flux.createStore({
     },
 
     restock() {
-        reqwest('path/to/html', function (resp) {
-          console.log(resp);
-        });
+        let minId = _.min(this.cards, function(card){ return card.id; });
+        reqwest({
+            url: `/timeline?max_id=${minId.id}`,
+            method: 'get',
+            success: function (resp) {
+                this.cards.concat(resp);
+            }.bind(this)
+        })
     },
 
     getState() {

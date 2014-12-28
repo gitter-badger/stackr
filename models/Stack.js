@@ -1,7 +1,8 @@
 
 const
     _      = require('lodash'),
-    Model  = require('./Model');
+    Model  = require('./Model'),
+    Immutable = require('immutable');
 
 function Stack() {
     Model.apply(this, arguments);
@@ -12,6 +13,10 @@ Stack.prototype = new Model();
 Stack.prototype = _.extend(Stack.prototype, {
 
     parse: function(data) {
+
+        if(Immutable.List.isList(data)) {
+            data = data.toJS();
+        }
 
         if (!_.isArray(data)) {
             return [];

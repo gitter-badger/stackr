@@ -15,11 +15,12 @@ passport.use(new TwitterStrategy({
         profile.token = token;
         profile.tokenSecret = tokenSecret;
 
-        //Based on profile return from Twitter, find existing user
-        let user = profile;
+        // Based on profile returned from Twitter, find existing user
+        // TODO: Implement user database
+        // let user = profile;
 
         //Return user model
-        return done(null, user);
+        return done(null, profile);
 
     }
 ));
