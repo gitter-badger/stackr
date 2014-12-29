@@ -16,7 +16,6 @@ export var CardStore = Flux.createStore({
     },
 
     pushCard(action) {
-        // TODO: Send Ajax
         this.action = action;
         this.cards.shift();
 
@@ -33,7 +32,7 @@ export var CardStore = Flux.createStore({
             url: `/timeline?max_id=${minId.id}`,
             method: 'get',
             success: function (resp) {
-                this.cards.concat(resp);
+                this.cards = this.cards.concat(resp);
             }.bind(this)
         })
     },

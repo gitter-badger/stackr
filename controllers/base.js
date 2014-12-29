@@ -28,8 +28,8 @@ module.exports = function(router) {
         } else {
             const
                 params = url.parse(this.req.url, true).query,
-                user = this.session.passport.user,
-                stack = yield homeTimeline.get(user.token, user.tokenSecret, params);
+                user   = this.session.passport.user,
+                stack  = yield homeTimeline.get(user.id, user.token, user.tokenSecret, params);
 
             this.body = stack.toJS();
         }

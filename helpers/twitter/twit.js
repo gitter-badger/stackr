@@ -1,6 +1,6 @@
 
 const
-    config = require('../config/config'),
+    config = require('../../config/config'),
     thunkify = require('thunkify-wrap'),
     Twit   = require('twit');
 
