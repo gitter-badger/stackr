@@ -11,9 +11,10 @@ const Immutable = require('immutable'),
 module.exports = {
 
     loadCache: function*(token, tokenSecret, key) {
+
         // Set twit parameters to send
         let twitParams = {
-                count: 200,
+                count: 80,
                 exclude_replies: true
             },
             cacheData = yield cache.get(key);
@@ -33,6 +34,7 @@ module.exports = {
         cache.set(key, cacheSet);
 
         return cacheSet;
+
     },
 
     get: function*(id, token, tokenSecret, params) {
@@ -44,10 +46,9 @@ module.exports = {
         // Convert to an ordered set
         result = Immutable.OrderedSet(JSON.parse(result));
 
-        // Load cache if current cache is empty of if it has less than 20 elements
-        if(!result) {
+        // Load cache if current cache is empty
+        if(!result.size) {
             result = yield this.loadCache(token, tokenSecret, key);
-            result = Immutable.OrderedSet(JSON.parse(result));
         }
 
         // Load data relative to max id passed
@@ -55,7 +56,16 @@ module.exports = {
             result = result.skipWhile(idfunc.gte(params.max_id));
         }
 
-        return result.slice(0, config.tweets.count);
+        // Get a slice of elements to send to client
+        result = result.slice(0, config.tweets.count);
+
+        // If there is not enough results, reload cache and add missing data
+        if(result.size < config.tweets.count) {
+            let newResult = yield this.loadCache(token, tokenSecret, key);
+            result = result.concat(newResult.slice(0, config.tweets.count - result.size));
+        }
+
+        return result;
 
     }
 };

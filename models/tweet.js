@@ -6,10 +6,11 @@ module.exports = {
 
     parse: function(data) {
 
-        var tweet = {}, rtBy, image;
+        var tweet = {}, id, rtBy, image;
 
         if (data.retweeted_status) {
             rtBy = data.user.name;
+            id   = data.id;
             data = data.retweeted_status;
         }
 
@@ -32,7 +33,7 @@ module.exports = {
         text = twttr.autoLink(text, twitterTextOptions);
 
         return {
-            id:        data.id,
+            id:        id || data.id,
             name:      data.user.name,
             username:  data.user.screen_name,
             avatarUrl: data.user.profile_image_url,
@@ -41,6 +42,7 @@ module.exports = {
             timeAgo:   moment(data.created_at).fromNow(),
             text:      text,
             rtBy:      rtBy,
+            rtId:      id ? data.id : undefined,
             image:     image
         };
 

@@ -27,14 +27,23 @@ export var CardStore = Flux.createStore({
     },
 
     restock() {
+
+        if(this.loading) {
+            return;
+        }
+
+        this.loading = true;
+
         let minId = _.min(this.cards, function(card){ return card.id; });
         reqwest({
             url: `/timeline?max_id=${minId.id}`,
             method: 'get',
             success: function (resp) {
                 this.cards = this.cards.concat(resp);
+                this.loading = false;
             }.bind(this)
-        })
+        });
+
     },
 
     getState() {
