@@ -32,12 +32,12 @@
     "test-travis": "NODE_ENV=test node --harmony node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot --timeout 2m --bail --recursive"
   },
   "dependencies": {
-    "browserify": "^6.2.0",
+    "browserify": "^8.0.2",
     "delorean": "^0.8.6",
     "es6ify": "^1.5.1",
     "gulp": "^3.8.10",
     "immutable": "^3.4.1",
-    "koa": "^0.13.0",
+    "koa": "^0.14.0",
     "koa-bodyparser": "^1.0.1",
     "koa-generic-session": "^1.2.2",
     "koa-hbs": "^0.5.0",
@@ -51,7 +51,7 @@
     "passport-twitter": "^1.0.2",
     "react": "^0.12.0",
     "react-tools": "^0.12.0",
-    "reactify": "^0.15.2",
+    "reactify": "^0.17.1",
     "redis": "^0.12.1",
     "require-dir": "^0.1.0",
     "reqwest": "^1.1.5",
