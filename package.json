@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "browserify": "^8.0.2",
+    "co": "^4.1.0",
     "delorean": "^0.8.6",
     "es6ify": "^1.5.1",
     "gulp": "^3.8.10",

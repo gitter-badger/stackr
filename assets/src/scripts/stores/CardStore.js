@@ -1,14 +1,16 @@
 
 /* global init:true */
 
-var {Flux}   = require('delorean');
-var _        = require('lodash');
-var thunkify = require('thunkify');
-var reqwest  = require('reqwest');
+const
+    {Flux}    = require('delorean'),
+    _         = require('lodash'),
+    co        = require('co'),
+    Immutable = require('immutable'),
+    reqwest   = require('reqwest');
 
 export var CardStore = Flux.createStore({
 
-    cards: init,
+    cards: Immutable.OrderedSet(init),
     action: null,
 
     actions: {
@@ -17,38 +19,33 @@ export var CardStore = Flux.createStore({
 
     pushCard(action) {
         this.action = action;
-        this.cards.shift();
+        this.cards = this.cards.rest();
 
-        if(this.cards.length <= 10) {
-            this.restock();
+        // When there is less than 10 cards in stock, it's time to restock!
+        if(this.cards.size <= 10) {
+            co(this.restock.bind(this));
         }
 
         this.emit('change');
     },
 
-    restock() {
+    restock: function*() {
+        // Get minimum id
+        let minId = this.cards.minBy(card => card.id).id;
 
-        if(this.loading) {
-            return;
-        }
-
-        this.loading = true;
-
-        let minId = _.min(this.cards, function(card){ return card.id; });
-        reqwest({
-            url: `/timeline?max_id=${minId.id}`,
-            method: 'get',
-            success: function (resp) {
-                this.cards = this.cards.concat(resp);
-                this.loading = false;
-            }.bind(this)
+        // Load tweets before oldest tweet in current stack
+        let cards = yield reqwest({
+            url: `/timeline?max_id=${minId}`,
+            method: 'get'
         });
 
+        // Add loaded cards to current array
+        this.cards = this.cards.concat(cards);
     },
 
     getState() {
         return {
-            cards: this.cards,
+            cards: this.cards.toJS(),
             action: this.action
         };
     }
